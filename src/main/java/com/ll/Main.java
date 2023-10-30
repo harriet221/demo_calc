@@ -19,25 +19,29 @@ class Calc {
         for (int i = 0; i < forms.length; i++) {
             if (forms[i].equals("+")) {
                 double a = stack.pop();
-                double b = Double.parseDouble(forms[i + 1]);
-                answer = a + b;
+                double b = Double.parseDouble(forms[++i]);
+                stack.push(a + b);
             } else if (forms[i].equals("-")) {
                 double a = stack.pop();
-                double b = Double.parseDouble(forms[i + 1]);
-                answer = a - b;
+                double b = Double.parseDouble(forms[++i]);
+                stack.push(a - b);
             } else if (forms[i].equals("*")) {
                 double a = stack.pop();
-                double b = Double.parseDouble(forms[i + 1]);
-                answer = a * b;
+                double b = Double.parseDouble(forms[++i]);
+                stack.push(a * b);
             } else if (forms[i].equals("/")) {
                 double a = stack.pop();
-                double b = Double.parseDouble(forms[i + 1]);
-                answer = a / b;
+                double b = Double.parseDouble(forms[++i]);
+                if(b == 0) {
+                    System.out.println("0으로 나누면 안됨");
+                    return;
+                }
+                stack.push(a / b);
             } else {
                 stack.push(Double.parseDouble(forms[i]));
             }
         }
-
+        answer = stack.pop();
         System.out.println((int)answer);
     }
 }
