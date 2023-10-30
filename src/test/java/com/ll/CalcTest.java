@@ -32,4 +32,21 @@ public class CalcTest {
         int rs = Calc.run("10 + 8 - 2");
         assertThat(rs).isEqualTo(16);
     }
+
+    @Test
+    @DisplayName("(10 + 8) == 18")
+    void test5() {
+        int rs = Calc.run("(10 + 8)");
+        assertThat(rs).isEqualTo(18);
+    }
+
+    /*
+    @Test
+    @DisplayName("10 + 8 * 2 == 26")
+    void test6() {
+        int rs = Calc.run("10 + 8 * 2");
+        assertThat(rs).isEqualTo(26);
+    }
+    */
+
 }

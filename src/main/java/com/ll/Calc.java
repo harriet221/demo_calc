@@ -4,13 +4,17 @@ import java.util.Stack;
 
 public class Calc {
     public static int run(String exp) {
+        if(exp.startsWith("(") && exp.endsWith(")")) {
+            exp = outOfBracket(exp);
+        }
+
         String[] operation = exp.split(" ");
         Stack<Integer> stack = new Stack<>();
 
         if(exp.isBlank()) return -999;
         int i = 0;
-        while(i<operation.length) {
 
+        while(i<operation.length) {
             String op = operation[i++].trim();
 
             if(op.equals("+")) {
@@ -39,5 +43,10 @@ public class Calc {
             }
         }
         return stack.pop();
+    }
+
+    public static String outOfBracket(String exp) {
+        String exp2 = exp.substring(1, exp.length()-1);
+        return exp2;
     }
 }
