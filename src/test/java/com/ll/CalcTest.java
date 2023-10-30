@@ -18,4 +18,18 @@ public class CalcTest {
         int rs = Calc.run("10 + 8");
         assertThat(rs).isEqualTo(18);
     }
+
+    @Test
+    @DisplayName("20 - 8 == 12")
+    void test3() {
+        int rs = Calc.run("20 - 8");
+        assertThat(rs).isEqualTo(12);
+    }
+/*
+    @Test
+    @DisplayName("10 + 8 * 2 == 26")
+    void test4() {
+        int rs = Calc.run("10 + 8 * 2");
+        assertThat(rs).isEqualTo(26);
+    }*/
 }
