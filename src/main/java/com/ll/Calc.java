@@ -1,28 +1,43 @@
 package com.ll;
 
+import java.util.Stack;
+
 public class Calc {
     public static int run(String exp) {
         String[] operation = exp.split(" ");
-        if(exp.equals("")) return 0;
+        Stack<Integer> stack = new Stack<>();
 
-        int a = Integer.parseInt(operation[0]);
-        String op = operation[1];
-        int b = Integer.parseInt(operation[2]);
+        if(exp.isBlank()) return -999;
+        int i = 0;
+        while(i<operation.length) {
 
-        if(op.equals("+")) {
-            return a+b;
-        } else if(op.equals("-")) {
-            return a-b;
-        } else if(op.equals("*")) {
-            return a*b;
-        } else if(op.equals("/")) {
-            if(b == 0) {
-                System.out.println("0으로 나누지 말라고");
-                return -999;
+            String op = operation[i++].trim();
+
+            if(op.equals("+")) {
+                int b = Integer.parseInt(operation[i++].trim());
+                int a = stack.pop();
+                stack.push(a+b);
+            } else if(op.equals("-")) {
+                int b = Integer.parseInt(operation[i++].trim());
+                int a = stack.pop();
+                stack.push(a-b);
+            } else if(op.equals("*")) {
+                int b = Integer.parseInt(operation[i++].trim());
+                int a = stack.pop();
+                stack.push(a*b);
+            } else if(op.equals("/")) {
+                int b = Integer.parseInt(operation[i++].trim());
+                int a = stack.pop();
+                if(b == 0) {
+                    System.out.println("0으로 나누지 말라고");
+                    return -999;
+                }
+                stack.push((int)(a/b));
+            } else {
+                int k = Integer.parseInt(op);
+                stack.push(k);
             }
-            return (int)a/b;
         }
-
-        return 0;
+        return stack.pop();
     }
 }

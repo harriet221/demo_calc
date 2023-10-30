@@ -25,11 +25,11 @@ public class CalcTest {
         int rs = Calc.run("20 - 8");
         assertThat(rs).isEqualTo(12);
     }
-/*
+
     @Test
-    @DisplayName("10 + 8 * 2 == 26")
+    @DisplayName("10 + 8 - 2 == 16")
     void test4() {
-        int rs = Calc.run("10 + 8 * 2");
-        assertThat(rs).isEqualTo(26);
-    }*/
+        int rs = Calc.run("10 + 8 - 2");
+        assertThat(rs).isEqualTo(16);
+    }
 }
