@@ -40,13 +40,13 @@ public class CalcTest {
         assertThat(rs).isEqualTo(18);
     }
 
-    /*
+
     @Test
-    @DisplayName("10 + 8 * 2 == 26")
+    @DisplayName("((10 + 8)) == 18")
     void test6() {
-        int rs = Calc.run("10 + 8 * 2");
-        assertThat(rs).isEqualTo(26);
+        int rs = Calc.run("((10 + 8))");
+        assertThat(rs).isEqualTo(18);
     }
-    */
+
 
 }
