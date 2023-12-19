@@ -4,7 +4,7 @@ import java.util.Stack;
 
 public class Calc {
     public static int run(String exp) {
-        if(exp.startsWith("(") && exp.endsWith(")")) {
+        if(exp.contains("(") && exp.contains(")")) {
             exp = outOfBracket(exp);
         }
 
@@ -46,7 +46,9 @@ public class Calc {
     }
 
     public static String outOfBracket(String exp) {
-        String exp2 = exp.substring(1, exp.length()-1);
-        return exp2;
+        while (exp.startsWith("(") && exp.endsWith(")")) {
+            exp = exp.substring(1, exp.length()-1);
+        }
+        return exp;
     }
 }

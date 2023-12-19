@@ -48,5 +48,10 @@ public class CalcTest {
         assertThat(rs).isEqualTo(18);
     }
 
-
+    @Test
+    @DisplayName("(10 + 8) - 7 == 11")
+    void test7() {
+        int rs = Calc.run("(10 + 8) - 7");
+        assertThat(rs).isEqualTo(11);
+    }
 }
