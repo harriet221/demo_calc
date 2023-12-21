@@ -54,4 +54,11 @@ public class CalcTest {
         int rs = Calc.run("(10 + 8) - 7");
         assertThat(rs).isEqualTo(11);
     }
+
+    @Test
+    @DisplayName("((10 + 8)) - 7 == 11")
+    void test8() {
+        int rs = Calc.run("((10 + 8)) - 7");
+        assertThat(rs).isEqualTo(11);
+    }
 }
