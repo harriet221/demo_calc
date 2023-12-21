@@ -46,9 +46,11 @@ public class Calc {
     }
 
     public static String outOfBracket(String exp) {
-        while (exp.startsWith("(") && exp.endsWith(")")) {
-            exp = exp.substring(1, exp.length()-1);
+        String exp1 = exp.substring(exp.indexOf("("), exp.indexOf(")")+1);
+        while (exp1.startsWith("(") && exp1.endsWith(")")) {
+            exp1 = exp1.substring(1, exp1.length()-1);
         }
+        exp = run(exp1)+exp.substring(exp.indexOf(")")+1);
         return exp;
     }
 }
